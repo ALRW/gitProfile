@@ -6,10 +6,10 @@ get '/' do
 
 end
 
-get '/search/:username' do
+get '/search' do
   content_type :json
 
   fetcher = GithubApiFetcher.new
-  fetcher.request(params[:username], ENV['ACCESS_TOKEN']) 
+  fetcher.request(params[:username], ENV['ACCESS_TOKEN'])
   fetcher.ok? ? fetcher.resp_body : (fail 'Request failed')
 end
