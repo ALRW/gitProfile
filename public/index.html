@@ -20,18 +20,7 @@
     <div class="center-block">
       <search-form></search-form>
       <div class="jumbotron">
-
-          <ul class="list-group">
-              <li ng-repeat="user in searchCtrl.searchResult.items" class="custom_user_grid">
-                <img ng-src="{{user.avatar_url}}" width='50em' height='50em'>
-                <ul class="custom_output">
-                  <li>Username: <a ng-href="{{user.html_url}}">{{user.login}}</a></li>
-                  <li>Repos: </li>
-                  <li>Followers: </li>
-                </ul>
-              </li>
-          </ul>
-
+        <search-results></search-results>
       </div>
     </div>
   </div>
