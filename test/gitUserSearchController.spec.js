@@ -1,4 +1,4 @@
-describe('GitUserSearchController', function() {
+escribe('GitUserSearchController', function() {
   var ctrl, searchFake, scope;
 
   beforeEach(module('GitUserSearch'));
