@@ -1,4 +1,4 @@
-describe ApiController do
+describe GithubApiFetcher do
   let(:username) { 'ALRW' }
   let(:key) { '123456' }
   subject(:apiReq) { described_class.new() }
@@ -6,12 +6,12 @@ describe ApiController do
   describe '#request' do
     it "sends a http request to an api" do
       apiReq.request(username)
-      expect(apiReq.response.message).to eq("OK")
+      expect(apiReq).to be_ok
     end
 
     it 'returns a json object' do
       apiReq.request(username)
-      expect{ JSON.parse(apiReq.response.body) }.not_to raise_error
+      expect{ JSON.parse(apiReq.resp_body) }.not_to raise_error
     end
   end
 
