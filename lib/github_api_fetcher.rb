@@ -1,13 +1,13 @@
-require 'HTTParty'
+require 'httparty'
 require 'json'
 
-class GithubApiFetcher 
+class GithubApiFetcher
   include HTTParty
 
   attr_reader :base_url
 
   def initialize(base_url = 'https://api.github.com/search/users')
-    @base_url = base_url 
+    @base_url = base_url
     @response = ''
   end
 
@@ -30,5 +30,6 @@ class GithubApiFetcher
   end
 
   private
+
   attr_accessor :response
 end
