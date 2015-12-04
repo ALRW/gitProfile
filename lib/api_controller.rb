@@ -1,15 +1,17 @@
 require 'HTTParty'
+require 'json'
 
 class ApiController
   include HTTParty
 
-  attr_reader :base_url
+  attr_reader :base_url, :response
   def initialize
     @base_url = 'https://api.github.com/search/users'
+    @response = ''
   end
 
   def request(username, *key)
-    response = HTTParty.get(build_url(username))
+    self.response = HTTParty.get(build_url(username))
     response.message
   end
 
@@ -17,4 +19,7 @@ class ApiController
     return "#{base_url}?access_token=#{key}&q=#{username}" unless key == ''
     "#{base_url}?q=#{username}"
   end
+
+  private
+  attr_writer :response
 end
