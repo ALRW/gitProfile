@@ -12,19 +12,13 @@
   <script src="js/app.js"></script>
   <script src="js/gitUserSearchController.js"></script>
   <script src="js/searchFactory.js"></script>
+  <script src="js/searchFormDirective.js"></script>
 </head>
 
 <body ng-controller="GitUserSearchController as searchCtrl">
   <div class="container">
     <div class="center-block">
-      <form class="form-horizontal">
-        <div class="page-header custom_div" >
-          <input class="custom_text_input" type="text" ng-model="searchCtrl.searchTerm" ng-change="searchCtrl.doSearch()"
-           ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" ng-minlength="1"
-           placeholder="Enter a Github Username">
-          <button class="btn btn-primary" ng-click="searchCtrl.doSearch()">Search</button>
-        </div>
-      </form>
+      <search-form></search-form>
       <div class="jumbotron">
 
           <ul class="list-group">
@@ -32,8 +26,8 @@
                 <img ng-src="{{user.avatar_url}}" width='50em' height='50em'>
                 <ul class="custom_output">
                   <li>Username: <a ng-href="{{user.html_url}}">{{user.login}}</a></li>
-                  <li>Repos: {{user.repos}}</li>
-                  <li>Followers: {{user.followers}}</li>
+                  <li>Repos: </li>
+                  <li>Followers: </li>
                 </ul>
               </li>
           </ul>

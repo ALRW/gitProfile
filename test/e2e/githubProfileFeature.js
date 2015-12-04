@@ -8,6 +8,8 @@ describe('Github Profile finder', function(){
   });
 
 
+
+
   it('has a title', function(){
     expect(browser.getTitle()).toEqual('Github User Search');
   });
@@ -15,7 +17,10 @@ describe('Github Profile finder', function(){
   it('finds profiles', function() {
     searchBox.sendKeys('spike');
     searchButton.click();
+    // as angular is connecting to the api through sinatra backend the response takes longer than usual hence the timeout
+    setTimeout(function(){
+      expect(profiles.last().getText()).toEqual('SciSpike');
+    }, 5000);
     console.log(profiles.length);
-    expect(profiles.last().getText()).toEqual('SciSpike');
   });
 });

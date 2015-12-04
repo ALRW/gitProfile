@@ -1,0 +1,8 @@
+<form class="form-horizontal">
+  <div class="page-header custom_div" >
+    <input class="custom_text_input" type="text" ng-model="searchCtrl.searchTerm" ng-change="searchCtrl.doSearch()"
+     ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" ng-minlength="1"
+     placeholder="Enter a Github Username">
+    <button class="btn btn-primary" ng-click="searchCtrl.doSearch()">Search</button>
+  </div>
+</form>
